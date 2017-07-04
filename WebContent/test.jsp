@@ -32,5 +32,11 @@ k = add(1234, 5678);
 <br>
 The new value of k is <%=k %>!!
 
+<%
+for (i = 0; i < 10; i++){
+%>
+<br> The value of i = <%=i %>
+<%}%>	
+
 </body>
 </html>
