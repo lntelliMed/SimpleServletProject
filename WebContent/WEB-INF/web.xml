@@ -13,6 +13,10 @@
   <servlet>
   	<servlet-name>xmlServlet</servlet-name>
   	<servlet-class>com.intellimed.XmlServlet</servlet-class>
+  	<init-param>
+  		<param-name>defaultUser</param-name>
+  		<param-value>John Doe v2</param-value>
+  	</init-param>
   </servlet>
   
   <servlet-mapping>

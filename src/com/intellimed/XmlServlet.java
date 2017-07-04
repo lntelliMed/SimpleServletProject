@@ -48,6 +48,8 @@ public class XmlServlet extends HttpServlet {
 		}
 		out.print("<br>Session parameter has user name as " + (String) session.getAttribute("savedUserName"));
 		out.print("<br>Context parameter has user name as " + (String) context.getAttribute("savedUserName"));
+		out.print("<br>Initi parameter has default user name value of " + this.getServletConfig().getInitParameter("defaultUser"));
+
 
 	}
 
