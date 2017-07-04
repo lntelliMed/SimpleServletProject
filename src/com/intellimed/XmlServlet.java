@@ -3,10 +3,12 @@ package com.intellimed;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class XmlServlet
@@ -34,7 +36,19 @@ public class XmlServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String userName = request.getParameter("userName");
-		out.print("Hello from the GET method " + userName);
+		//out.print("Hello from the GET method " + userName);
+		
+		out.print("<br>Request parameter has user name as " + userName);
+		HttpSession session = request.getSession();
+		ServletContext context = request.getServletContext();
+		
+		if(userName != "" && userName != null){
+			session.setAttribute("savedUserName", userName);
+			context.setAttribute("savedUserName", userName);
+		}
+		out.print("<br>Session parameter has user name as " + (String) session.getAttribute("savedUserName"));
+		out.print("<br>Context parameter has user name as " + (String) context.getAttribute("savedUserName"));
+
 	}
 
 	/**
